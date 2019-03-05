@@ -3,6 +3,7 @@ package app.model;
 import app.entities.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,7 @@ public class Model {
 
     private static Model instance = new Model();
 
-    private List<User> model;
+    private static List<User> model;
 
     public static Model getInstance() {
         return instance;
@@ -28,6 +29,21 @@ public class Model {
         return model.stream()
                 .map(User::getName)
                 .collect(Collectors.toList());
+    }
+
+    public static void show(){
+        for (User user : model) {
+            System.out.println(user);
+        }
+    }
+
+    public static boolean deleteUser(String name) {
+        boolean deleted = false;
+        for (User user: model) {
+            if (model.remove(user))
+                deleted = true;
+        }
+        return deleted;
     }
 
 }

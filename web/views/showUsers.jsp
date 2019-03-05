@@ -9,33 +9,43 @@
 <html>
     <head>
         <title>Users list</title>
-    </head>
-    <body>
-        <div>
+        <link rel="stylesheet" href="styles/w3.css">
+        </head>
+    <body class="w3-light-grey">
+        <div class="w3-container w3-blue-grey w3-opacity w3-right-align">
             <h1>ShowUser</h1>
         </div>
 
-        <div>
-            <div>
-                <div>
+        <div class="w3-container w3-center w3-margin-bottom w3-padding">
+            <div class="w3-card-4">
+                <div class="w3-container w3-light-blue">
                     <h2>Users</h2>
                 </div>
-                <%
-                    List<String> names = (List<String>) request.getAttribute("userNames");
-
-                    if (names != null && names.isEmpty()) {
-                        out.println("<ui>");
-                        for (String s : names) {
-                            out.println("<li>" + s + "</li>");
-                        }
-                        out.println("</ui>");
-                    } else out.println("<p>There are no Users yet!</p>");
-                %>
+                <form id="data" method = "post">
+                    <%
+                        List<String> names = (List<String>) request.getAttribute("userNames");
+                        if (names != null && !names.isEmpty()) {
+                            out.println("<ul class=\"w3-ul\">");
+                            for (String s : names) {
+                                out.println("<li class=\"w3-hover-sand\">" + s
+                                        + "<input class=\"w3-right\" type=\"checkbox\" name=\"" + s + "\">"
+                                        + "</li>");
+                            }
+                            out.println("</ul>");
+                        } else out.println("<div class=\"w3-panel w3-red w3-display-container w3-card-4 w3-round\">\n"
+                                +
+                                "   <span onclick=\"this.parentElement.style.display='none'\"\n" +
+                                "   class=\"w3-button w3-margin-right w3-display-right w3-round-large w3-hover-red w3-border w3-border-red w3-hover-border-grey\">×</span>\n" +
+                                "   <h5>There are no users yet!</h5>\n" +
+                                "</div>");
+                    %>
+                    </form>
             </div>
         </div>
 
-        <div>
-            <button onclick="location.href='/'">Back to main</button>
+        <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
+            <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
+            <button class="w3-btn w3-round-large" type="submit" form="data" formaction="deleteUsers">Delete selected users</button>
         </div>
     </body>
 </html>

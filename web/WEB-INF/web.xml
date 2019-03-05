@@ -26,4 +26,16 @@
         <url-pattern>/showUsers</url-pattern>
     </servlet-mapping>
 
+    <!--DeleteUsers-->
+    <servlet>
+        <servlet-name>deleteUsers</servlet-name>
+        <servlet-class>app.servlets.DeleteUsersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteUsers</servlet-name>
+        <url-pattern>/deleteUsers</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
