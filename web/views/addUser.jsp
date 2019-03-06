@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Add new user</title>
         <link rel="stylesheet" href="styles/w3.css">
     </head>
@@ -32,6 +33,7 @@
                 </div>
 
                 <form method = "post" class="w3-selection w3-light-grey w3-padding">
+                    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
                     <label>
                         Name:
                         <input type="text" name="name" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />

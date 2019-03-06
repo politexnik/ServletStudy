@@ -38,12 +38,7 @@ public class Model {
     }
 
     public static boolean deleteUser(String name) {
-        boolean deleted = false;
-        for (User user: model) {
-            if (model.remove(user))
-                deleted = true;
-        }
-        return deleted;
+        return model.removeIf(user -> user.getName().equals(name));
     }
 
 }

@@ -24,11 +24,7 @@ public class DeleteUsersServlet extends HttpServlet {
                 Model.deleteUser(name);
             }
         }
-        System.out.println("Я отработал!");
         String path = "/showUsers";
-//        ServletContext servletContext = getServletContext();
-//        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(path);
-//        requestDispatcher.forward(req, resp);
         resp.sendRedirect(path);
     }
 }
